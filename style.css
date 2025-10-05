@@ -1,0 +1,171 @@
+/* --- Global & Layout Styles --- */
+main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#status-message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* --- Game Board Styles (Grid) --- */
+.board {
+    display: grid;
+    /* Create a 3x3 grid with equal-sized columns */
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 0; /* Cells will manage their own borders */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-image: url(./assets/profile1-B-ELFP6C.jpg);
+    background-position: center;
+    background-size: contain;
+    border: 3px solid #333; /* Main board border */
+}
+
+/* --- Cell Styles --- */
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+    user-select: none; /* Prevent text selection */
+    
+    /* Individual cell borders */
+    border: 1px solid #ccc;
+}
+
+/* Remove or adjust borders for a cleaner look */
+/* Top Row */
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) { border-top: none; }
+/* Bottom Row */
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) { border-bottom: none; }
+/* Left Column */
+.cell:nth-child(3n + 1) { border-left: none; }
+/* Right Column */
+.cell:nth-child(3n + 3) { border-right: none; }
+
+
+/* Hover Effect */
+.cell:not(.x):not(.o):hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+/* --- Player Mark Styles --- */
+.x {
+    color: #dc3545; /* Red */
+}
+
+.o {
+    color: #28a745; /* Green */
+}
+
+/* Optional: Simple animation when a mark is placed */
+.cell.x, .cell.o {
+    animation: pop-in 0.2s ease-out;
+}
+
+@keyframes pop-in {
+    from { transform: scale(0.5); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Winner Highlight --- */
+.cell.winner {
+    background-color: #ffc107; /* Yellow highlight */
+    color: #333;
+    font-weight: bold;
+}
+
+/* --- Button Styles --- */
+#reset-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#reset-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Responsiveness (Mobile Adjustments) --- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #status-message {
+        font-size: 1.2em;
+    }
+    
+    /* Make the board and cells smaller for mobile */
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell {
+        font-size: 3em;
+    }
+
+    #reset-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.social-links a {
+    margin: 0 5px;
+}

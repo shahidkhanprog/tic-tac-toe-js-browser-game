@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+
+    <main>
+        <div id="status-message">Player X's Turn</div>
+
+        <div id="game-board" class="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <button id="reset-button">Reset Game</button>
+    </main>
+
+ <footer>
+    <p>&copy; <span id="current-year">2025</span> Tic-Tac-Toe Project | Created with 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">HTML</a>, 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">CSS</a> & 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>.
+    </p>
+    <p>A web development exercise.</p>
+    <div class="social-links">
+        <a href="https://skhan-portfolio.vercel.app/" target="_blank">GitHub / Portfolio</a> |
+        <a href="https://wa.me/923449885555" target="_blank">WhatsApp</a>
+    </div>
+</footer>
+
+<script>
+    // Set current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
